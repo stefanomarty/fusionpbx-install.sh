@@ -8,7 +8,8 @@ cd "$(dirname "$0")"
 . ../colors.sh
 . ../environment.sh
 
-apt-get update && apt-get install -y --force-yes curl memcached haveged
+#apt-get update && apt-get install -y --force-yes curl memcached haveged
+apt-get update && apt-get install -y --force-yes curl memcached
 if [ ."$cpu_architecture" = ."arm" ]; then
         echo "deb http://repo.sip247.com/debian/freeswitch-stable-armhf/ jessie main" > /etc/apt/sources.list.d/freeswitch.list
         curl http://repo.sip247.com/debian/sip247.com.gpg.key | apt-key add -

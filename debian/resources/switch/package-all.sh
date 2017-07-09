@@ -9,7 +9,8 @@ cd "$(dirname "$0")"
 . ../environment.sh
 . ../arguments.sh
 
-apt-get update && apt-get install -y --force-yes ntp curl memcached haveged
+#apt-get update && apt-get install -y --force-yes ntp curl memcached haveged
+apt-get update && apt-get install -y --force-yes ntp curl memcached
 
 if [ ."$cpu_architecture" = ."arm" ]; then
         echo "deb http://repo.sip247.com/debian/freeswitch-stable-armhf/ jessie main" > /etc/apt/sources.list.d/freeswitch.list
