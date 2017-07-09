@@ -1,5 +1,5 @@
 ;;;;; Author: Travis Cross <tc@traviscross.com>
- 
+
 [Unit]
 Description=freeswitch
 ;After=syslog.target network.target local-fs.target postgresql.service haveged.service
@@ -8,12 +8,13 @@ After=syslog.target network.target local-fs.target postgresql.service
 [Service]
 ; service
 Type=forking
-PIDFile=/run/freeswitch/freeswitch.pid
+;PIDFile=/run/freeswitch/freeswitch.pid
+PIDFile=/usr/local/freeswitch/run/freeswitch.pid
 Environment="DAEMON_OPTS=-nonat"
-EnvironmentFile=-/etc/default/freeswitch
+;EnvironmentFile=-/etc/default/freeswitch
 ExecStart=/usr/local/freeswitch/bin/freeswitch -u www-data -g www-data -ncwait $DAEMON_OPTS
 ;ExecStart=/usr/local/freeswitch/bin/freeswitch -u freeswitch -g freeswitch -ncwait $DAEMON_OPTS
-TimeoutSec=45s
+TimeoutSec=60s
 Restart=always
 ; exec
 User=root
@@ -21,7 +22,8 @@ Group=daemon
 LimitCORE=infinity
 LimitNOFILE=100000
 LimitNPROC=60000
-LimitSTACK=240K
+;LimitSTACK=240K
+LimitSTACK=245760
 LimitRTPRIO=infinity
 LimitRTTIME=7000000
 IOSchedulingClass=realtime
@@ -29,7 +31,7 @@ IOSchedulingPriority=2
 CPUSchedulingPolicy=rr
 CPUSchedulingPriority=89
 UMask=0007
- 
+
 ; alternatives which you can enforce by placing a unit drop-in into
 ; /etc/systemd/system/freeswitch.service.d/*.conf:
 ;
@@ -51,6 +53,6 @@ UMask=0007
 ; ExecStartPost=/bin/chrt -f -p 1 $MAINPID
 ;
 ; execute "systemctl daemon-reload" after editing the unit files.
- 
+
 [Install]
 WantedBy=multi-user.target
