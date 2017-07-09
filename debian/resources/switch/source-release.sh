@@ -32,14 +32,14 @@ sed -i /home/src/freeswitch/modules.conf -e s:'#applications/mod_curl:applicatio
 sed -i /home/src/freeswitch/modules.conf -e s:'#formats/mod_shout:formats/mod_shout:'
 #./configure --help
 #./configure --prefix=/usr/local/freeswitch --enable-core-pgsql-support --enable-system-lua --disable-fhs
-./configure --prefix=/usr/local/freeswitch --enable-core-pgsql-support --disable-fhs
+./configure --prefix=/usr/local/freeswitch --enable-core-pgsql-support --disable-fhs --enable-zrtp
 #make mod_shout-install
 make
-rm -rf /usr/local/freeswitch/{lib,mod,bin}/*
+rm -rf /usr/local/freeswitch/*
 make install
-make sounds-install moh-install
-make hd-sounds-install hd-moh-install
 make cd-sounds-install cd-moh-install
+#make sounds-install moh-install
+#make hd-sounds-install hd-moh-install
 
 #move the music into music/default directory
 mkdir -p /usr/local/freeswitch/sounds/music/default
@@ -49,4 +49,4 @@ mv /usr/local/freeswitch/sounds/music/*000 /usr/local/freeswitch/sounds/music/de
 cd $CWD
 
 #symbolic link for fs_cli
-ln -s /usr/local/freeswitch/bin/fs_cli /usr/bin/fs_cli
+#ln -s /usr/local/freeswitch/bin/fs_cli /usr/bin/fs_cli
