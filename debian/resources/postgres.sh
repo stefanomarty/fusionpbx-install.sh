@@ -61,9 +61,9 @@ systemctl restart postgresql
 #/usr/sbin/service postgresql restart
 
 #install the database backup
-cp backup/fusionpbx-backup.sh /etc/cron.daily
-chmod 755 /etc/cron.daily/fusionpbx-backup.sh
-sed -i "s/zzz/$password/g" /etc/cron.daily/fusionpbx-backup.sh
+#cp backup/fusionpbx-backup.sh /etc/cron.daily
+#chmod 755 /etc/cron.daily/fusionpbx-backup.sh
+#sed -i "s/zzz/$password/g" /etc/cron.daily/fusionpbx-backup.sh
 
 #move to /tmp to prevent a red herring error when running sudo with psql
 cwd=$(pwd)
