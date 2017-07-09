@@ -9,32 +9,32 @@ cd "$(dirname "$0")"
 . ./resources/environment.sh
 
 # removes the cd img from the /etc/apt/sources.list file (not needed after base install)
-sed -i '/cdrom:/d' /etc/apt/sources.list
+#sed -i '/cdrom:/d' /etc/apt/sources.list
 
 #Update to latest packages
-verbose "Update installed packages"
-apt-get upgrade && apt-get update -y --force-yes
+#verbose "Update installed packages"
+#apt-get upgrade && apt-get update -y --force-yes
 
 #Add dependencies
 apt-get install -y lsb-release
 
 #IPTables
-resources/iptables.sh
+#resources/iptables.sh
 
 #sngrep
-resources/sngrep.sh
+#resources/sngrep.sh
 
 #FusionPBX
 resources/fusionpbx.sh
 
 #NGINX web server
-resources/nginx.sh
+#resources/nginx.sh
 
 #PHP
-resources/php.sh
+#resources/php.sh
 
 #Fail2ban
-resources/fail2ban.sh
+#resources/fail2ban.sh
 
 #FreeSWITCH
 resources/switch.sh
@@ -43,7 +43,8 @@ resources/switch.sh
 resources/postgres.sh
 
 #set the ip address
-server_address=$(hostname -I)
+#server_address=$(hostname -I)
+server_address=192.168.1.11
 
 #restart services
 systemctl daemon-reload
