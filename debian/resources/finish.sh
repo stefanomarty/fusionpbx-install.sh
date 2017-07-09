@@ -37,7 +37,8 @@ cd /home/www/fusionpbx && php /home/www/fusionpbx/core/upgrade/upgrade_schema.ph
 #domain_name=$(hostname -f)
 
 #get the ip address
-domain_name=$(hostname -I | cut -d ' ' -f1)
+#domain_name=$(hostname -I | cut -d ' ' -f1)
+domain_name=www.cryptoteam.it
 
 #get a domain_uuid
 domain_uuid=$(/usr/bin/php /home/www/fusionpbx/resources/uuid.php);
@@ -51,6 +52,8 @@ cd /home/www/fusionpbx && php /home/www/fusionpbx/core/upgrade/upgrade_domains.p
 #add the user
 user_uuid=$(/usr/bin/php /home/www/fusionpbx/resources/uuid.php);
 user_salt=$(/usr/bin/php /home/www/fusionpbx/resources/uuid.php);
+
+#default user name is admin
 user_name=$system_username
 if [ .$system_password = .'random' ]; then
 	user_password=$(dd if=/dev/urandom bs=1 count=12 2>/dev/null | base64 | sed 's/[=\+//]//g')
