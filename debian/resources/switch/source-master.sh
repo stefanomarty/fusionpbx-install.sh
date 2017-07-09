@@ -11,15 +11,15 @@ echo "deb http://files.freeswitch.org/repo/deb/debian-unstable/ jessie main" > /
 apt-get update && apt-get upgrade
 apt-get install -y --force-yes freeswitch-video-deps-most
 
-git clone https://freeswitch.org/stash/scm/fs/freeswitch.git /usr/src/freeswitch
-cd /usr/src/freeswitch
+git clone https://freeswitch.org/stash/scm/fs/freeswitch.git /home/src/freeswitch
+cd /home/src/freeswitch
 
-sed -i /usr/src/freeswitch/modules.conf -e s:'#applications/mod_avmd:applications/mod_avmd:'
-sed -i /usr/src/freeswitch/modules.conf -e s:'#applications/mod_callcenter:applications/mod_callcenter:'
-sed -i /usr/src/freeswitch/modules.conf -e s:'#applications/mod_cidlookup:applications/mod_cidlookup:'
-sed -i /usr/src/freeswitch/modules.conf -e s:'#applications/mod_memcache:applications/mod_memcache:'
-sed -i /usr/src/freeswitch/modules.conf -e s:'#applications/mod_curl:applications/mod_curl:'
-sed -i /usr/src/freeswitch/modules.conf -e s:'#formats/mod_shout:formats/mod_shout:'
+sed -i /home/src/freeswitch/modules.conf -e s:'#applications/mod_avmd:applications/mod_avmd:'
+sed -i /home/src/freeswitch/modules.conf -e s:'#applications/mod_callcenter:applications/mod_callcenter:'
+sed -i /home/src/freeswitch/modules.conf -e s:'#applications/mod_cidlookup:applications/mod_cidlookup:'
+sed -i /home/src/freeswitch/modules.conf -e s:'#applications/mod_memcache:applications/mod_memcache:'
+sed -i /home/src/freeswitch/modules.conf -e s:'#applications/mod_curl:applications/mod_curl:'
+sed -i /home/src/freeswitch/modules.conf -e s:'#formats/mod_shout:formats/mod_shout:'
 ./bootstrap.sh -j
 #./configure --prefix=/usr/local/freeswitch --enable-core-pgsql-support --enable-system-lua --disable-fhs
 ./configure --prefix=/usr/local/freeswitch --enable-core-pgsql-support --disable-fhs
@@ -28,14 +28,14 @@ sed -i /usr/src/freeswitch/modules.conf -e s:'#formats/mod_shout:formats/mod_sho
 make
 rm -rf /usr/local/freeswitch/{lib,mod,bin}/*
 make install
-make sounds-install moh-install
-make hd-sounds-install hd-moh-install
 make cd-sounds-install cd-moh-install
+#make sounds-install moh-install
+#make hd-sounds-install hd-moh-install
 
 #move the music into music/default directory
 mkdir -p /usr/local/freeswitch/sounds/music/default
 mv /usr/local/freeswitch/sounds/music/*000 /usr/local/freeswitch/sounds/music/default
 
 #configure system service
-ln -s /usr/local/freeswitch/bin/fs_cli /usr/bin/fs_cli
+#ln -s /usr/local/freeswitch/bin/fs_cli /usr/bin/fs_cli
 cp "$(dirname $0)/source/freeswitch.service" /lib/systemd/system/freeswitch.service

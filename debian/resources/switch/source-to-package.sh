@@ -4,7 +4,7 @@
 mkdir -p /etc/fusionpbx
 
 #remove init.d startup script
-mv /etc/init.d/freeswitch /usr/src/init.d.freeswitch
+mv /etc/init.d/freeswitch /home/src/init.d.freeswitch
 update-rc.d -f freeswitch remove
 
 #add the the freeswitch package

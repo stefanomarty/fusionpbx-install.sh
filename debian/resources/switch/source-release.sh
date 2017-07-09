@@ -15,8 +15,8 @@ apt-get install -y --force-yes freeswitch-video-deps-most
 CWD=$(pwd)
 SWITCH_VERSION=1.6.18
 echo "Using version $SWITCH_VERSION"
-cd /usr/src
-#git clone -b v1.6 https://freeswitch.org/stash/scm/fs/freeswitch.git /usr/src/freeswitch
+cd /home/src
+#git clone -b v1.6 https://freeswitch.org/stash/scm/fs/freeswitch.git /home/src/freeswitch
 wget http://files.freeswitch.org/freeswitch-releases/freeswitch-$SWITCH_VERSION.zip
 unzip freeswitch-$SWITCH_VERSION.zip
 rm -R freeswitch
@@ -24,12 +24,12 @@ mv freeswitch-$SWITCH_VERSION freeswitch
 cd freeswitch
 
 #./bootstrap.sh -j
-sed -i /usr/src/freeswitch/modules.conf -e s:'#applications/mod_avmd:applications/mod_avmd:'
-sed -i /usr/src/freeswitch/modules.conf -e s:'#applications/mod_callcenter:applications/mod_callcenter:'
-sed -i /usr/src/freeswitch/modules.conf -e s:'#applications/mod_cidlookup:applications/mod_cidlookup:'
-sed -i /usr/src/freeswitch/modules.conf -e s:'#applications/mod_memcache:applications/mod_memcache:'
-sed -i /usr/src/freeswitch/modules.conf -e s:'#applications/mod_curl:applications/mod_curl:'
-sed -i /usr/src/freeswitch/modules.conf -e s:'#formats/mod_shout:formats/mod_shout:'
+sed -i /home/src/freeswitch/modules.conf -e s:'#applications/mod_avmd:applications/mod_avmd:'
+sed -i /home/src/freeswitch/modules.conf -e s:'#applications/mod_callcenter:applications/mod_callcenter:'
+sed -i /home/src/freeswitch/modules.conf -e s:'#applications/mod_cidlookup:applications/mod_cidlookup:'
+sed -i /home/src/freeswitch/modules.conf -e s:'#applications/mod_memcache:applications/mod_memcache:'
+sed -i /home/src/freeswitch/modules.conf -e s:'#applications/mod_curl:applications/mod_curl:'
+sed -i /home/src/freeswitch/modules.conf -e s:'#formats/mod_shout:formats/mod_shout:'
 #./configure --help
 #./configure --prefix=/usr/local/freeswitch --enable-core-pgsql-support --enable-system-lua --disable-fhs
 ./configure --prefix=/usr/local/freeswitch --enable-core-pgsql-support --disable-fhs
