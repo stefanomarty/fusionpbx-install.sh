@@ -9,7 +9,7 @@ server{
 	client_body_buffer_size 128k;
 
 	location / {
-		root /var/www/fusionpbx;
+		root /home/www/fusionpbx;
 		index index.php;
 	}
 
@@ -18,7 +18,7 @@ server{
 		#fastcgi_pass 127.0.0.1:9000;
 		fastcgi_index index.php;
 		include fastcgi_params;
-		fastcgi_param   SCRIPT_FILENAME /var/www/fusionpbx$fastcgi_script_name;
+		fastcgi_param   SCRIPT_FILENAME /home/www/fusionpbx$fastcgi_script_name;
 	}
 
 	# Allow the upgrade routines to run longer than normal
@@ -27,7 +27,7 @@ server{
 		#fastcgi_pass 127.0.0.1:9000;
 		fastcgi_index index.php;
 		include fastcgi_params;
-		fastcgi_param   SCRIPT_FILENAME /var/www/fusionpbx$fastcgi_script_name;
+		fastcgi_param   SCRIPT_FILENAME /home/www/fusionpbx$fastcgi_script_name;
 		fastcgi_read_timeout 15m;
 	}
 
@@ -105,7 +105,7 @@ server {
 	client_body_buffer_size 128k;
 
 	location / {
-		root /var/www/fusionpbx;
+		root /home/www/fusionpbx;
 		index index.php;
 	}
 
@@ -114,7 +114,7 @@ server {
 		#fastcgi_pass 127.0.0.1:9000;
 		fastcgi_index index.php;
 		include fastcgi_params;
-		fastcgi_param   SCRIPT_FILENAME /var/www/fusionpbx$fastcgi_script_name;
+		fastcgi_param   SCRIPT_FILENAME /home/www/fusionpbx$fastcgi_script_name;
 	}
 
 	# Allow the upgrade routines to run longer than normal
@@ -123,7 +123,7 @@ server {
 		#fastcgi_pass 127.0.0.1:9000;
 		fastcgi_index index.php;
 		include fastcgi_params;
-		fastcgi_param   SCRIPT_FILENAME /var/www/fusionpbx$fastcgi_script_name;
+		fastcgi_param   SCRIPT_FILENAME /home/www/fusionpbx$fastcgi_script_name;
 		fastcgi_read_timeout 15m;
 	}
 
@@ -150,7 +150,7 @@ server {
 
 	#letsencrypt
 	location /.well-known/acme-challenge {
-        	root /var/www/letsencrypt;
+        	root /home/www/letsencrypt;
     	}
 
 	#REST api
@@ -207,7 +207,7 @@ server {
 	client_body_buffer_size 128k;
 
 	location / {
-		root /var/www/fusionpbx;
+		root /home/www/fusionpbx;
 		index index.php;
 	}
 
@@ -216,7 +216,7 @@ server {
 		#fastcgi_pass 127.0.0.1:9000;
 		fastcgi_index index.php;
 		include fastcgi_params;
-		fastcgi_param   SCRIPT_FILENAME /var/www/fusionpbx$fastcgi_script_name;
+		fastcgi_param   SCRIPT_FILENAME /home/www/fusionpbx$fastcgi_script_name;
 	}
 
 	# Allow the upgrade routines to run longer than normal
@@ -225,7 +225,7 @@ server {
 		#fastcgi_pass 127.0.0.1:9000;
 		fastcgi_index index.php;
 		include fastcgi_params;
-		fastcgi_param   SCRIPT_FILENAME /var/www/fusionpbx$fastcgi_script_name;
+		fastcgi_param   SCRIPT_FILENAME /home/www/fusionpbx$fastcgi_script_name;
 		fastcgi_read_timeout 15m;
 	}
 

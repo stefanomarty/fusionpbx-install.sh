@@ -127,7 +127,7 @@ else
 fi
 
 #load the freeswitch database
-#sudo -u postgres psql -d freeswitch -f /var/www/fusionpbx/resources/install/sql/switch.sql -L /tmp/switch-sql.log
+#sudo -u postgres psql -d freeswitch -f /home/www/fusionpbx/resources/install/sql/switch.sql -L /tmp/switch-sql.log
 
 #sleeping
 if [ .$group_create = .false ]; then

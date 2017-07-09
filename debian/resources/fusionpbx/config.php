@@ -29,7 +29,7 @@
 
 //sqlite: the db_name and db_path are automatically assigned however the values can be overidden by setting the values here.
 	//$db_name = 'fusionpbx.db'; //host name/ip address + '.db' is the default database filename
-	//$db_path = '/var/www/fusionpbx/secure'; //the path is determined by a php variable
+	//$db_path = '/home/www/fusionpbx/secure'; //the path is determined by a php variable
 
 //pgsql: database connection information
 	$db_host = 'localhost'; //set the host only if the database is not local

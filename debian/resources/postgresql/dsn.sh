@@ -31,7 +31,7 @@ fi
 #load the schema
 if [ .$load_schema = ."y" ]; then
 	sudo -u postgres psql -d freeswitch -c "create extension pgcrypto;";
-	sudo -u postgres psql -d freeswitch -f /var/www/fusionpbx/resources/install/sql/switch.sql -L /tmp/schema.log;
+	sudo -u postgres psql -d freeswitch -f /home/www/fusionpbx/resources/install/sql/switch.sql -L /tmp/schema.log;
 fi
 
 #enable odbc-dsn in the xml

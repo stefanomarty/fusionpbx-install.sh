@@ -50,7 +50,7 @@ chmod 755 /opt/letsencrypt/certbot-auto
 
 #make the directories
 mkdir -p /etc/letsencrypt/configs
-mkdir -p /var/www/letsencrypt/
+mkdir -p /home/www/letsencrypt/
 
 #cd $pwd
 #cd "$(dirname "$0")"
@@ -63,7 +63,7 @@ sed "s#{domain_name}#$domain_name#g" -i /etc/letsencrypt/configs/$domain_name.co
 sed "s#{email_address}#$email_address#g" -i /etc/letsencrypt/configs/$domain_name.conf
 
 #letsencrypt
-#sed "s@#letsencrypt@location /.well-known/acme-challenge { root /var/www/letsencrypt; }@g" -i /etc/nginx/sites-available/fusionpbx
+#sed "s@#letsencrypt@location /.well-known/acme-challenge { root /home/www/letsencrypt; }@g" -i /etc/nginx/sites-available/fusionpbx
 
 #get the certs from letsencrypt
 cd /opt/letsencrypt && ./letsencrypt-auto --config /etc/letsencrypt/configs/$domain_name.conf certonly
